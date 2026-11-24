@@ -20,11 +20,6 @@ export function SiteFooter() {
             <li>
               <Link href="/privacy">{en.footer.privacy}</Link>
             </li>
-            <li>
-              <Link href="/fr/presse" hrefLang="fr" lang="fr">
-                {en.footer.frenchPress}
-              </Link>
-            </li>
           </ul>
         </nav>
         <div className="footer-span">

@@ -1,6 +1,31 @@
 @import "tailwindcss";
 @import "../design/brand.css";
 
+@font-face {
+  font-family: "Mona Sans";
+  src: url("/fonts/mona-sans.ttf") format("truetype");
+  font-weight: 200 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Newsreader";
+  src: url("/fonts/newsreader-italic.ttf") format("truetype");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
@@ -48,8 +73,13 @@ ol {
   list-style: none;
 }
 
-a {
-  color: inherit;
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus,
+a:focus-visible {
+  color: var(--color-foreground);
 }
 
 a,
@@ -135,51 +165,70 @@ select,
   line-height: 0;
 }
 
-.logo {
+.logo-small {
   display: block;
-}
-
-.logo img {
-  display: none;
   width: auto;
-  height: auto;
+  height: calc(26px / var(--logo-cap));
 }
 
-.logo-header .logo-small,
-.logo-hero .logo-small {
-  display: block;
-  height: calc(28px / var(--logo-cap));
+.hero-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--color-placeholder);
+  color: var(--color-background);
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0.18em;
 }
 
-.logo-hero .logo-small {
-  width: min(100%, 16rem);
-  height: auto;
+.hero-photo-label {
+  letter-spacing: 0.18em;
 }
 
-@media (min-width: 960px) {
-  .logo-header .logo-small {
-    display: none;
+.hero-mark {
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .hero-frame {
+    aspect-ratio: 16 / 9;
   }
 
-  .logo-header .logo-fendu {
+  .hero-mark {
     display: block;
-    height: calc(60px / var(--logo-cap));
+    position: absolute;
+    left: 4%;
+    right: 4%;
+    bottom: 6%;
   }
 
-  .logo-header {
-    margin-block: 30px;
-  }
-
-  .logo-hero .logo-small {
-    display: none;
-  }
-
-  .logo-hero .logo-fendu {
-    display: block;
-    width: 100%;
-    max-width: 64rem;
+  .hero-mark .logo-fendu {
+    width: min(100%, 46rem);
     height: auto;
   }
+}
+
+.home-column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2.1rem, 4.9vw, 4.55rem);
+  max-width: var(--measure);
+}
+
+.manifesto {
+  margin: 0;
+  max-width: var(--measure);
+  font-family: var(--font-text);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.45;
+  white-space: pre-line;
 }
 
 .site-nav ul,

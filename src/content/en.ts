@@ -1,5 +1,5 @@
 import type { PlatformKey } from "@/content/links";
-import { noticeEn, oneLinerEn } from "@/content/lines";
+import { copyrightLine, noticeEn, oneLinerEn } from "@/content/lines";
 import { artistName } from "@/site.config";
 
 export const platformLabels: Record<PlatformKey, string> = {
@@ -40,14 +40,14 @@ export const en = {
     privacy: "Privacy",
     frenchPress: "Presse",
     listen: "Listen",
-    copyright: `© 2026 ${artistName}`,
+    copyright: copyrightLine,
     notice: noticeEn,
     preview: "Preview",
   },
   home: {
     description: oneLinerEn,
     tagline: oneLinerEn,
-    intro: `TRIPTYQUE is the current release: three tracks, issued in order. On stage, ${artistName} plays a DJ set for clubs and brand events.`,
+    intro: `TRIPTYQUE is the current release: three tracks. On stage, ${artistName} plays a DJ set for clubs and brand events.`,
     releaseKicker: "Current release",
     viewRelease: "View the release",
     indexLabel: "Pages",

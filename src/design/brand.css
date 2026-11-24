@@ -12,8 +12,8 @@
   --color-foreground: #f4f1ea;
   --color-placeholder: #8c8a85;
 
-  --font-display: var(--font-mona), "Helvetica Neue", Arial, sans-serif;
-  --font-text: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-display: "Mona Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Newsreader", Georgia, "Times New Roman", serif;
 
   --space-gutter: 1.25rem;
   --space-gutter-lg: 3.5rem;

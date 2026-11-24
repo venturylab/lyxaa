@@ -3,6 +3,9 @@ export const artistName = "LYXAA";
 
 const brand = "/brand";
 
+/** Off until photographs from a real shoot are published. */
+export const showLightLine = false;
+
 export const wordmarks = {
   fenduOnDark: `${brand}/${artistName}-wordmark-fendu-blanc.svg`,
   fenduOnLight: `${brand}/${artistName}-wordmark-fendu-noir.svg`,

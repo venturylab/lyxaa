@@ -50,6 +50,8 @@ const encodedPhrases = [
   "dmVpbGVk",
   "dm9pbGU=",
   "dm9pbMOp",
+  "VGhlIHNldHMgYXJlIHJlYWw=",
+  "TGVzIHNldHMgc29udCByw6llbHM=",
 ];
 const phrases = encodedPhrases.map((value) => Buffer.from(value, "base64").toString("utf8"));
 const phrasePatterns = phrases.map((phrase) => {
@@ -75,11 +77,12 @@ if (nameCount !== 1) {
 
 const linesSource = await readFile(path.join(root, "src/content/lines.ts"), "utf8");
 const requiredLines = [
-  "Producer and DJ. Black and white.",
-  "AI is one of the instruments. The sets are real.",
+  "Producer and DJ. Black and white. AI is one of the instruments.",
   "Music and visuals made using AI.",
-  "L'IA est l'un des instruments. Les sets sont réels.",
-  "Musique et visuels créés à l'aide de l'IA.",
+  "Productrice et DJ. Noir et blanc. L'IA fait partie des instruments.",
+  "Musique et visuels réalisés au moyen de l'IA.",
+  "AI is one of the instruments. The light is real.",
+  "© 2026 [titulaire à confirmer]",
 ];
 for (const line of requiredLines) {
   if (!linesSource.includes(line)) {

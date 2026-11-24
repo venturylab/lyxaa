@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { en } from "@/content/en";
+import { noticeEn, noticeFr } from "@/content/lines";
 
 export const metadata: Metadata = {
   title: en.legal.title,
@@ -14,6 +15,10 @@ export default function LegalPage() {
       <p className="lede">{en.legal.lede}</p>
       <p className="measure" style={{ marginTop: "1.25rem" }}>
         {en.legal.body}
+      </p>
+      <p className="notice">{noticeEn}</p>
+      <p className="notice" lang="fr">
+        {noticeFr}
       </p>
     </div>
   );

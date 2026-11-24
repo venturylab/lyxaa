@@ -13,7 +13,7 @@
 ## Pas appliqué depuis le brand book
 
 - Sous-ensemble WOFF2 : les fichiers livrés sont les TTF variables, servis tels quels.
-- Traduction française du manifeste, marquée à valider : non publiée. La signature anglaise est sur l'accueil, une seule fois.
+- Le manifeste anglais est publié sur l'accueil. Sa traduction française reste marquée à valider, donc non publiée.
 - Gabarits réseaux, vidéo, pochettes, posts typographiques : hors du site.
 - Crédit phonographique : aucun titulaire n'a été fourni, donc aucune ligne ℗ n'est affichée. Le style de crédit est prêt pour le ©.
 - CMJN et impression : non concernés.

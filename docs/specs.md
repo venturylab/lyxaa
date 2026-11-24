@@ -10,15 +10,15 @@ Anglais par défaut. Français uniquement pour `/fr/presse`, avec la bascule EN 
 
 ## Phrases
 
-Courte, en anglais : Producer and DJ. Black and white. AI is one of the instruments. The sets are real.
+Courte, en anglais : Producer and DJ. Black and white. AI is one of the instruments.
 
 Mention, pied de page de chaque page et dossier de presse : Music and visuals made using AI.
 
-Presse française : L'IA est l'un des instruments. Les sets sont réels. Mention : Musique et visuels créés à l'aide de l'IA.
+Presse française : Productrice et DJ. Noir et blanc. L'IA fait partie des instruments. Mention : Musique et visuels réalisés au moyen de l'IA. La même mention française est sur la page des mentions légales.
 
 On n'écrit pas que les voix sont humaines. On ne cite pas d'autre projet. On ne montre pas de visage : cadres gris `PHOTO` seulement.
 
-La signature « Light freezes. Fire slows. Time leaves a trace. » apparaît une fois, sur l'accueil, hors de la zone de protection du logo. Ce n'est pas le titre.
+Le manifeste anglais est sur l'accueil, en italique, avec une ligne vide entre le troisième et le quatrième vers. La ligne sur la lumière reste masquée tant que `showLightLine` est faux.
 
 ## Pages
 

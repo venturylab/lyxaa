@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
+import ReactDOM from "react-dom";
 import { en } from "@/content/en";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
-import { monaSans, newsreader } from "@/design/fonts";
 import { isSiteIndexable, siteUrl } from "@/lib/indexing";
 import { artistName } from "@/site.config";
 import "./globals.css";
@@ -79,9 +79,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  ReactDOM.preload("/fonts/mona-sans.ttf", {
+    as: "font",
+    type: "font/ttf",
+    crossOrigin: "anonymous",
+  });
+  ReactDOM.preload("/fonts/newsreader.ttf", {
+    as: "font",
+    type: "font/ttf",
+    crossOrigin: "anonymous",
+  });
+  ReactDOM.preload("/fonts/newsreader-italic.ttf", {
+    as: "font",
+    type: "font/ttf",
+    crossOrigin: "anonymous",
+  });
+
   return (
     <html lang="en">
-      <body className={`${monaSans.variable} ${newsreader.variable}`}>
+      <body>
         <a className="skip" href="#content">
           {en.skip}
         </a>

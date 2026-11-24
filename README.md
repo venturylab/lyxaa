@@ -33,17 +33,17 @@ npm run build
 - `src/content/links.ts` — titres, numéros, dates de parution et adresses sortantes
 - `src/content/press-photos.ts` — cadres des photographies
 
-La phrase courte est : « Producer and DJ. Black and white. AI is one of the instruments. The sets are real. »
+La phrase courte est : « Producer and DJ. Black and white. AI is one of the instruments. »
 
 La mention, au pied de chaque page et dans le dossier de presse : « Music and visuals made using AI. »
 
-Sur la page de presse française seulement : « L'IA est l'un des instruments. Les sets sont réels. » et « Musique et visuels créés à l'aide de l'IA. »
+Sur la page de presse française, et sur la page des mentions légales : « Musique et visuels réalisés au moyen de l'IA. » La biographie française est : « Productrice et DJ. Noir et blanc. L'IA fait partie des instruments. »
 
 On n'écrit pas que les voix sont humaines. On ne nomme pas d'autre projet.
 
 ## Charte
 
-`src/design/brand.css` : les cinq couleurs et les rôles. `src/design/fonts.ts` : Mona Sans et Newsreader, servies en local. `src/design/Wordmark.tsx` : le wordmark dessiné. Les fichiers sont dans `public/brand/` et `public/favicon/`. Les licences sont dans `src/fonts/`.
+`src/design/brand.css` : les cinq couleurs, les rôles, et les noms de police. Les fichiers sont dans `public/fonts/`, `public/brand/` et `public/favicon/`. Les licences sont dans `src/fonts/`. `src/design/Wordmark.tsx` affiche le dessin.
 
 Le wordmark fendu est utilisé quand la hauteur de capitale atteint 60 px. En dessous, c'est la version pour petites tailles. Le fond du site est noir. Le gris des cadres `PHOTO` n'est pas un blanc pur.
 

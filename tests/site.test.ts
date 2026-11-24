@@ -101,10 +101,10 @@ test("release titles, order, dates, and addresses stay exact", () => {
 
 test("the stage name and the public lines stay in one place", () => {
   assert.equal(artistName, "LYXAA");
-  assert.equal(oneLinerEn, "Producer and DJ. Black and white. AI is one of the instruments. The sets are real.");
+  assert.equal(oneLinerEn, "Producer and DJ. Black and white. AI is one of the instruments.");
   assert.equal(noticeEn, "Music and visuals made using AI.");
-  assert.equal(oneLinerFr, "Productrice et DJ. Noir et blanc. L'IA est l'un des instruments. Les sets sont réels.");
-  assert.equal(noticeFr, "Musique et visuels créés à l'aide de l'IA.");
+  assert.equal(oneLinerFr, "Productrice et DJ. Noir et blanc. L'IA fait partie des instruments.");
+  assert.equal(noticeFr, "Musique et visuels réalisés au moyen de l'IA.");
   assert.equal(wordmarks.fenduOnDark, `/brand/${artistName}-wordmark-fendu-blanc.svg`);
   assert.equal(wordmarks.smallOnDark, `/brand/${artistName}-wordmark-plein-petites-tailles-blanc.svg`);
 });

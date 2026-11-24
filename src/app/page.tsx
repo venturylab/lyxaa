@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { en } from "@/content/en";
-import { signature } from "@/content/lines";
+import {
+  lightLine,
+  manifestoAfter,
+  manifestoBefore,
+  manifestoClose,
+} from "@/content/lines";
 import { release } from "@/content/links";
 import { TrackIndex } from "@/components/TrackIndex";
 import { Wordmark } from "@/design/Wordmark";
-import { artistName } from "@/site.config";
+import { artistName, showLightLine } from "@/site.config";
 
 export const metadata: Metadata = {
   title: { absolute: artistName },
@@ -17,25 +22,30 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const manifesto = [
+    ...manifestoBefore,
+    "",
+    ...manifestoAfter,
+    ...(showLightLine ? [lightLine] : []),
+    manifestoClose,
+  ].join("\n");
+
   return (
     <div className="wrap page stack">
-      <header className="hero">
-        <h1>
+      <h1 className="sr-only">{artistName}</h1>
+
+      <div className="hero-frame" role="img" aria-label="Full-face portrait placeholder">
+        <span className="hero-photo-label">PHOTO</span>
+        <div className="hero-mark">
           <Wordmark variant="hero" />
-        </h1>
+        </div>
+      </div>
+
+      <div className="home-column">
         <p className="lede">{en.home.tagline}</p>
-      </header>
-
-      <p className="signature">
-        {signature.map((line) => (
-          <span key={line}>
-            {line}
-            <br />
-          </span>
-        ))}
-      </p>
-
-      <p className="measure">{en.home.intro}</p>
+        <p className="manifesto">{manifesto}</p>
+        <p>{en.home.intro}</p>
+      </div>
 
       <section aria-labelledby="release">
         <p className="kicker">{en.home.releaseKicker}</p>

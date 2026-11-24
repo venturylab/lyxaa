@@ -7,11 +7,11 @@ type WordmarkProps = {
 };
 
 export function Wordmark({ variant = "header" }: WordmarkProps) {
-  const wide = variant === "hero" ? "logo logo-hero" : "logo logo-header";
-  return (
-    <span className={wide}>
-      <img className="logo-small" src={wordmarks.smallOnDark} alt={artistName} />
+  if (variant === "hero") {
+    return (
       <img className="logo-fendu" src={wordmarks.fenduOnDark} alt={artistName} />
-    </span>
-  );
+    );
+  }
+
+  return <img className="logo-small" src={wordmarks.smallOnDark} alt={artistName} />;
 }
