@@ -92,7 +92,7 @@ export function PressKit({ copy, lang }: { copy: PressCopy; lang: "en" | "fr" })
 
       <section aria-labelledby="photos">
         <h2 id="photos">{copy.photosHeading}</h2>
-        <p className="measure" style={{ marginTop: "1rem" }}>
+        <p className="long" style={{ marginTop: "1rem" }}>
           {copy.photosNote}
         </p>
         <div className="photo-grid">
@@ -115,7 +115,7 @@ export function PressKit({ copy, lang }: { copy: PressCopy; lang: "en" | "fr" })
 
       <section aria-labelledby="press-booking">
         <h2 id="press-booking">{copy.bookingHeading}</h2>
-        <p className="measure" style={{ marginTop: "1rem" }}>
+        <p className="long" style={{ marginTop: "1rem" }}>
           {copy.booking}
         </p>
         <p style={{ marginTop: "1rem" }}>

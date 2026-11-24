@@ -1,4 +1,5 @@
 import type { PlatformKey } from "@/content/links";
+import { pendingStageLine } from "@/content/pending-copy";
 import { copyrightLine, noticeEn, oneLinerEn } from "@/content/lines";
 import { artistName } from "@/site.config";
 
@@ -47,7 +48,7 @@ export const en = {
   home: {
     description: oneLinerEn,
     tagline: oneLinerEn,
-    intro: `TRIPTYQUE is the current release: three tracks. On stage, ${artistName} plays a DJ set for clubs and brand events.`,
+    intro: `TRIPTYQUE is the current release: three tracks. ${pendingStageLine}`,
     releaseKicker: "Current release",
     viewRelease: "View the release",
     indexLabel: "Pages",

@@ -75,7 +75,10 @@ if (nameCount !== 1) {
   process.exit(1);
 }
 
-const linesSource = await readFile(path.join(root, "src/content/lines.ts"), "utf8");
+const linesSource = [
+  await readFile(path.join(root, "src/content/lines.ts"), "utf8"),
+  await readFile(path.join(root, "src/content/pending-copy.ts"), "utf8"),
+].join("\n");
 const requiredLines = [
   "Producer and DJ. Black and white. AI is one of the instruments.",
   "Music and visuals made using AI.",

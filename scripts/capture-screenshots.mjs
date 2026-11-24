@@ -33,7 +33,9 @@ async function shot(page, name) {
   console.log(`${name} overflow=${overflow}`);
 }
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({
+  args: ["--disable-lcd-text", "--font-render-hinting=none"],
+});
 await mkdir(outDir, { recursive: true });
 
 for (const width of widths) {

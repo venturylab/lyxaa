@@ -1,6 +1,8 @@
-/** Every public sentence that must stay exact lives in this file. */
+import { pendingBio, pendingManifestoLine } from "@/content/pending-copy";
 
-export const oneLinerEn = "Producer and DJ. Black and white. AI is one of the instruments.";
+/** Every public sentence that must stay exact lives in this file, except the three pending lines. */
+
+export const oneLinerEn = pendingBio;
 
 export const oneLinerFr = "Productrice et DJ. Noir et blanc. L'IA fait partie des instruments.";
 
@@ -23,7 +25,7 @@ export const manifestoBefore = [
 ] as const;
 
 export const manifestoAfter = [
-  "A producer and DJ, one band of light, the rest in black.",
+  pendingManifestoLine,
   "Black and white, because colour explains too much.",
 ] as const;
 

@@ -34,6 +34,8 @@
 
 html {
   color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -43,10 +45,13 @@ body {
   flex-direction: column;
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-text);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-stretch: 100%;
   font-size: 1.0625rem;
-  font-optical-sizing: auto;
   line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (min-width: 800px) {
@@ -251,8 +256,10 @@ select,
 }
 
 .text-link {
-  font-family: var(--font-text);
+  font-family: var(--font-display);
   font-size: 1rem;
+  font-weight: 400;
+  font-stretch: 100%;
   letter-spacing: 0;
   text-transform: none;
   text-decoration: underline;
@@ -340,8 +347,10 @@ h3 {
 
 .lede {
   margin-top: 1.4rem;
+  font-family: var(--font-display);
   font-size: 1.0625rem;
   font-weight: 400;
+  font-stretch: 100%;
   line-height: 1.45;
   letter-spacing: 0;
   text-transform: none;
@@ -395,9 +404,19 @@ h3 {
   color: var(--color-secondary);
 }
 
+.placeholder-copy,
+.long {
+  font-family: var(--font-text);
+  font-weight: 400;
+  font-stretch: 100%;
+  font-style: normal;
+  letter-spacing: 0;
+  text-transform: none;
+  max-width: var(--measure);
+}
+
 .placeholder-copy {
   color: var(--color-secondary);
-  max-width: var(--measure);
 }
 
 .hero {
@@ -483,6 +502,25 @@ h3 {
 .page-index a:hover .index-label {
   text-decoration: underline;
   text-underline-offset: 0.2em;
+}
+
+.page-index .secondary,
+.rule-list,
+.home-column p {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.home-column .manifesto {
+  font-family: var(--font-text);
+  font-style: italic;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .index-label {

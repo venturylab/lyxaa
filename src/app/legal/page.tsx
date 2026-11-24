@@ -13,7 +13,7 @@ export default function LegalPage() {
       <p className="kicker">{en.legal.kicker}</p>
       <h1>{en.legal.heading}</h1>
       <p className="lede">{en.legal.lede}</p>
-      <p className="measure" style={{ marginTop: "1.25rem" }}>
+      <p className="long" style={{ marginTop: "1.25rem" }}>
         {en.legal.body}
       </p>
       <p className="notice">{noticeEn}</p>

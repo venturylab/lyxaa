@@ -12,7 +12,7 @@ export default function PrivacyPage() {
       <p className="kicker">{en.privacy.kicker}</p>
       <h1>{en.privacy.heading}</h1>
       <p className="lede">{en.privacy.lede}</p>
-      <p className="measure" style={{ marginTop: "1.25rem" }}>
+      <p className="long" style={{ marginTop: "1.25rem" }}>
         {en.privacy.body}
       </p>
     </div>
