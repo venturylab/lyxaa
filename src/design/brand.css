@@ -1,0 +1,24 @@
+/*
+ * Brand tokens. Swap the charter here.
+ * The wordmark component sits next to this file: src/design/Wordmark.tsx.
+ * Grey is only for secondary text (--color-secondary) and photograph
+ * placeholders (--color-placeholder). Everything else is black or white.
+ */
+
+:root {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-secondary: #4a4a4a;
+  --color-placeholder: #d9d9d9;
+
+  --font-display: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans", sans-serif;
+  --font-text: Georgia, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+
+  --space-gutter: 1.25rem;
+  --space-gutter-lg: 3.5rem;
+  --space-section: 6.5rem;
+  --page-width: 70rem;
+  --measure: 36rem;
+
+  --line: 1px solid var(--color-foreground);
+}
