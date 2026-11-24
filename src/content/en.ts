@@ -1,5 +1,6 @@
 import type { PlatformKey } from "@/content/links";
-import { publicLineEn } from "@/content/public-line";
+import { noticeEn, oneLinerEn } from "@/content/lines";
+import { artistName } from "@/site.config";
 
 export const platformLabels: Record<PlatformKey, string> = {
   appleMusic: "Apple Music",
@@ -39,14 +40,14 @@ export const en = {
     privacy: "Privacy",
     frenchPress: "Presse",
     listen: "Listen",
-    copyright: "© 2026 LYXAA",
+    copyright: `© 2026 ${artistName}`,
+    notice: noticeEn,
     preview: "Preview",
   },
   home: {
-    description: publicLineEn,
-    tagline: publicLineEn,
-    intro:
-      "TRIPTYQUE is the current release: three tracks, issued in order. On stage, LYXAA plays a veiled DJ set for clubs and brand events.",
+    description: oneLinerEn,
+    tagline: oneLinerEn,
+    intro: `TRIPTYQUE is the current release: three tracks, issued in order. On stage, ${artistName} plays a DJ set for clubs and brand events.`,
     releaseKicker: "Current release",
     viewRelease: "View the release",
     indexLabel: "Pages",
@@ -62,8 +63,7 @@ export const en = {
   },
   music: {
     title: "Music",
-    description:
-      "TRIPTYQUE, the current release by LYXAA: Underneath the Strobe Lights, Quiet Fire, and Keep the Time.",
+    description: `TRIPTYQUE, the current release by ${artistName}: Underneath the Strobe Lights, Quiet Fire, and Keep the Time.`,
     kicker: "Music",
     lede: "Three tracks. Each listening link opens on the platform, in a new tab.",
     released: "Released",
@@ -77,11 +77,11 @@ export const en = {
   },
   live: {
     title: "Live & booking",
-    description: "A veiled DJ set for clubs and brand events. Dates and booking.",
+    description: "A DJ set for clubs and brand events. Dates and booking.",
     kicker: "Live",
     heading: "Live & booking",
-    lede: "A veiled DJ set for clubs and brand events.",
-    body: "LYXAA performs behind a veil. The set is made for clubs, and for events held by a brand.",
+    lede: "A DJ set for clubs and brand events.",
+    body: `${artistName} plays a DJ set for clubs and brand events.`,
     datesHeading: "Dates",
     datesEmpty: "No dates announced.",
     datesNote: "Confirmed dates will be listed here.",
@@ -126,13 +126,13 @@ export const en = {
   },
   press: {
     title: "Press",
-    description:
-      "Press kit for LYXAA: biography, discography, technical rider, and photographs.",
+    description: `Press kit for ${artistName}: biography, discography, technical rider, and photographs.`,
     kicker: "Press kit",
     heading: "Press",
     languageLabel: "Language",
     shortHeading: "Short biography",
-    shortBio: publicLineEn,
+    shortBio: oneLinerEn,
+    notice: noticeEn,
     longHeading: "Long biography",
     longBio:
       "[Placeholder — the long biography will be supplied by the music team.]",
@@ -178,6 +178,6 @@ export const en = {
     description: "This address does not match a page.",
     heading: "Page not found",
     body: "This address does not match a page.",
-    home: "Back to LYXAA",
+    home: `Back to ${artistName}`,
   },
 } as const;

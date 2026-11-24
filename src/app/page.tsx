@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { en } from "@/content/en";
+import { signature } from "@/content/lines";
 import { release } from "@/content/links";
 import { TrackIndex } from "@/components/TrackIndex";
 import { Wordmark } from "@/design/Wordmark";
+import { artistName } from "@/site.config";
 
 export const metadata: Metadata = {
-  title: { absolute: "LYXAA" },
+  title: { absolute: artistName },
   description: en.home.description,
   openGraph: {
-    title: "LYXAA",
+    title: artistName,
     description: en.home.description,
   },
 };
@@ -23,6 +25,15 @@ export default function HomePage() {
         </h1>
         <p className="lede">{en.home.tagline}</p>
       </header>
+
+      <p className="signature">
+        {signature.map((line) => (
+          <span key={line}>
+            {line}
+            <br />
+          </span>
+        ))}
+      </p>
 
       <p className="measure">{en.home.intro}</p>
 

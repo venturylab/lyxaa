@@ -8,12 +8,6 @@ export const metadata: Metadata = {
   openGraph: {
     locale: "fr_FR",
   },
-  alternates: {
-    languages: {
-      en: "/press",
-      fr: "/fr/presse",
-    },
-  },
 };
 
 export default function FrenchPressPage() {

@@ -5,12 +5,6 @@ import { PressKit } from "@/components/PressKit";
 export const metadata: Metadata = {
   title: en.press.title,
   description: en.press.description,
-  alternates: {
-    languages: {
-      en: "/press",
-      fr: "/fr/presse",
-    },
-  },
 };
 
 export default function PressPage() {

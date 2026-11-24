@@ -1,10 +1,17 @@
-export const wordmarkText = "LYXAA";
+/* The brand book requires the drawn wordmark, as an image, not typed text. */
+/* eslint-disable @next/next/no-img-element */
+import { artistName, wordmarks } from "@/site.config";
 
 type WordmarkProps = {
-  variant?: "default" | "hero";
+  variant?: "header" | "hero";
 };
 
-export function Wordmark({ variant = "default" }: WordmarkProps) {
-  const className = variant === "hero" ? "wordmark wordmark-hero" : "wordmark";
-  return <span className={className}>{wordmarkText}</span>;
+export function Wordmark({ variant = "header" }: WordmarkProps) {
+  const wide = variant === "hero" ? "logo logo-hero" : "logo logo-header";
+  return (
+    <span className={wide}>
+      <img className="logo-small" src={wordmarks.smallOnDark} alt={artistName} />
+      <img className="logo-fendu" src={wordmarks.fenduOnDark} alt={artistName} />
+    </span>
+  );
 }

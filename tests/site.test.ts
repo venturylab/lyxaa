@@ -3,7 +3,9 @@ import { readdirSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { platformLabels } from "../src/content/en";
+import { noticeEn, noticeFr, oneLinerEn, oneLinerFr } from "../src/content/lines";
 import { artistLinks, release } from "../src/content/links";
+import { artistName, wordmarks } from "../src/site.config";
 import { processBooking } from "../src/lib/booking-process";
 import { validateBooking } from "../src/lib/booking-validate";
 import { visiblePlatforms } from "../src/lib/streaming";
@@ -50,7 +52,7 @@ const validRequest = {
   date: "2026-12-12",
   city: "Lyon",
   budget: "",
-  message: "We would like a veiled set in December.",
+  message: "We would like a DJ set in December.",
   consent: true,
   website: "",
 };
@@ -95,6 +97,16 @@ test("release titles, order, dates, and addresses stay exact", () => {
     }),
     [],
   );
+});
+
+test("the stage name and the public lines stay in one place", () => {
+  assert.equal(artistName, "LYXAA");
+  assert.equal(oneLinerEn, "Producer and DJ. Black and white. AI is one of the instruments. The sets are real.");
+  assert.equal(noticeEn, "Music and visuals made using AI.");
+  assert.equal(oneLinerFr, "Productrice et DJ. Noir et blanc. L'IA est l'un des instruments. Les sets sont réels.");
+  assert.equal(noticeFr, "Musique et visuels créés à l'aide de l'IA.");
+  assert.equal(wordmarks.fenduOnDark, `/brand/${artistName}-wordmark-fendu-blanc.svg`);
+  assert.equal(wordmarks.smallOnDark, `/brand/${artistName}-wordmark-plein-petites-tailles-blanc.svg`);
 });
 
 test("artist pages and platform label", () => {

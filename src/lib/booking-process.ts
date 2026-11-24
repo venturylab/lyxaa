@@ -1,4 +1,5 @@
 import { en } from "@/content/en";
+import { artistName } from "@/site.config";
 import {
   bookingPlainText,
   validateBooking,
@@ -105,7 +106,7 @@ export async function processBooking(
     delivery.email = {
       from,
       to,
-      subject: "Booking request — LYXAA",
+      subject: `Booking request — ${artistName}`,
       text: bookingPlainText(validated.data),
     };
   }

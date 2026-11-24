@@ -1,36 +1,30 @@
-# Notes de projet
+# Notes
 
-## Décisions
+## Décisions de cette passe
 
-- L’anglais porte le site. Le français ne couvre que le dossier de presse, avec une bascule EN / FR sur ces pages.
-- La phrase publique est centralisée. Elle sert de ligne d’accueil et de biographie courte. Aucune autre formulation n’est ajoutée.
-- La charte de jeudi n’est pas devinée. Le site est noir et blanc, avec des polices système et un wordmark texte, tous remplaçables dans `src/design/`.
-- Aucune photographie n’est utilisée. Les cadres gris affichent `PHOTO` et gardent une proportion fixe (`4 / 5`, `4 / 5`, `3 / 2`).
-- Les liens d’écoute sont de vraies ancres. Pas de lecteur intégré, pour éviter les cookies et les textes de plateforme.
-- Spotify n’a pas d’adresse vérifiée : les champs restent vides et les boutons restent cachés.
-- L’absence de Deezer sur Quiet Fire et Keep the Time est confirmée, ce n’est pas un oubli.
-- Les dates de parution sont affichées telles quelles.
-- Le booking de prévisualisation ne crée pas de compte et n’envoie rien tant qu’une variable d’environnement n’est pas posée.
-- L’indexation est coupée par défaut, avec un seul interrupteur pour l’ouverture.
+- Le nom de scène est une seule valeur de configuration. Le wordmark est le dessin, pas du texte.
+- Le site est sur fond noir, avec la palette en cinq tons. Les cadres photo sont gris, pas blancs.
+- Mona Sans et Newsreader sont auto-hébergées. Le dépôt livre des TTF variables, pas des WOFF2.
+- La phrase courte et la mention légale remplacent l'ancienne ligne de positionnement.
+- Les voix des titres actuels sont générées. Le site ne le dit qu'avec la phrase approuvée, et ne nomme pas l'outil.
+- Le français de cette phrase et de la mention n'est publié que sur la page de presse française.
+- Aucun lien vers un autre projet. Aucun visage.
 
-## Ce qui reste provisoire
+## Pas appliqué depuis le brand book
 
-- Biographie longue, en anglais et en français
-- Fiche technique
-- Photographies de presse
-- Fichier EPK téléchargeable
-- Adresse directe de booking
-- Mentions légales
-- Politique de confidentialité
-- Dates de concert
-- Adresses Spotify
-- Paliers de budget du formulaire
-- Logotype, polices et éventuelle palette, à l’arrivée de la charte
-- Domaine public et passage de `SITE_INDEXABLE` à vrai
+- Sous-ensemble WOFF2 : les fichiers livrés sont les TTF variables, servis tels quels.
+- Traduction française du manifeste, marquée à valider : non publiée. La signature anglaise est sur l'accueil, une seule fois.
+- Gabarits réseaux, vidéo, pochettes, posts typographiques : hors du site.
+- Crédit phonographique : aucun titulaire n'a été fourni, donc aucune ligne ℗ n'est affichée. Le style de crédit est prêt pour le ©.
+- CMJN et impression : non concernés.
+
+## Toujours provisoire
+
+Biographie longue, fiche technique, photographies, EPK, mentions légales, confidentialité, dates de concert, adresses Spotify, paliers de budget, décision sur le nom, domaine.
 
 ## Captures
 
-Fichiers dans `docs/screenshots/`, largeur puis langue. Le français n’existe que pour le dossier de presse.
+Dans `docs/screenshots/`, largeur puis langue. Le français n'existe que pour la presse.
 
 - `home-en-1440.png`, `home-en-390.png`
 - `music-en-1440.png`, `music-en-390.png`
@@ -39,9 +33,3 @@ Fichiers dans `docs/screenshots/`, largeur puis langue. Le français n’existe 
 - `press-fr-1440.png`, `press-fr-390.png`
 - `legal-en-1440.png`, `legal-en-390.png`
 - `privacy-en-1440.png`, `privacy-en-390.png`
-
-Contrôle du formulaire, en plus des pages :
-
-- `live-en-1440-errors.png`
-- `live-en-1440-sent.png`
-- `live-en-390-sent.png`

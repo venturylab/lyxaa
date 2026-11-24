@@ -1,63 +1,55 @@
-# Spécification — site LYXAA
+# Spécification
 
-## Identité
+## Nom
 
-Le seul nom public est LYXAA.
-
-Phrase anglaise, utilisée comme ligne d’introduction et comme biographie courte. C’est la seule formulation autorisée sur ce sujet :
-
-> LYXAA is the audiovisual project of a producer and DJ, augmented by AI.
-
-Phrase française, réservée au dossier de presse :
-
-> LYXAA, le projet audiovisuel d'une productrice et DJ, augmenté par l'IA.
-
-Le contrôle `scripts/check-public-identity.mjs` vérifie que ces phrases vivent dans `src/content/public-line.ts`, et qu’aucun prénom ni nom civil n’apparaît ailleurs que dans ce script (valeurs encodées).
+Une seule valeur, `artistName`, dans `src/site.config.ts`. Le reste du site l'interpole. Aucun domaine n'est écrit. `NEXT_PUBLIC_SITE_URL` est vide par défaut et ne produit pas de balise canonique tant qu'il l'est.
 
 ## Langues
 
-- Anglais par défaut : accueil, musique, live, presse, mentions légales, confidentialité.
-- Français : uniquement `/fr/presse`.
-- Bascule discrète EN / FR sur les deux pages de presse. Le pied de page propose aussi « Presse ».
+Anglais par défaut. Français uniquement pour `/fr/presse`, avec la bascule EN / FR.
+
+## Phrases
+
+Courte, en anglais : Producer and DJ. Black and white. AI is one of the instruments. The sets are real.
+
+Mention, pied de page de chaque page et dossier de presse : Music and visuals made using AI.
+
+Presse française : L'IA est l'un des instruments. Les sets sont réels. Mention : Musique et visuels créés à l'aide de l'IA.
+
+On n'écrit pas que les voix sont humaines. On ne cite pas d'autre projet. On ne montre pas de visage : cadres gris `PHOTO` seulement.
+
+La signature « Light freezes. Fire slows. Time leaves a trace. » apparaît une fois, sur l'accueil, hors de la zone de protection du logo. Ce n'est pas le titre.
 
 ## Pages
 
 | Chemin | Rôle |
 | --- | --- |
-| `/` | Hero LYXAA, phrase publique, introduction, TRIPTYQUE, liens vers les autres pages |
-| `/music` | TRIPTYQUE, trois morceaux, liens sortants, pages artiste |
-| `/live` | Set DJ voilé pour clubs et événements de marque, dates vides, formulaire |
+| `/` | Wordmark, phrase courte, signature, TRIPTYQUE |
+| `/music` | Trois titres et liens sortants |
+| `/live` | DJ set pour clubs et événements de marque, dates vides, formulaire |
 | `/press` | Dossier de presse anglais |
 | `/fr/presse` | Dossier de presse français |
 | `/legal` | Emplacement pour les mentions légales |
-| `/privacy` | Emplacement pour la politique de confidentialité |
+| `/privacy` | Emplacement pour la confidentialité |
 
 ## TRIPTYQUE
 
-Les adresses canoniques sont dans `src/content/links.ts`. Un champ vide masque le bouton. Les dates ne sont pas réinterprétées.
+Adresses dans `src/content/links.ts`. Champ vide : bouton masqué. Dates affichées telles quelles.
 
-| N° | Titre | Date affichée | Plateformes |
+| N° | Titre | Date | Plateformes |
 | --- | --- | --- | --- |
 | I | Underneath the Strobe Lights | 11/11/2026 | Apple Music, Deezer, YouTube, TIDAL, Amazon Music. Spotify vide. |
 | II | Quiet Fire | 04/11/2026 | Apple Music, YouTube, TIDAL, Amazon Music. Pas de Deezer. Spotify vide. |
 | III | Keep the Time | 01/11/2026 | Apple Music, YouTube, TIDAL, Amazon Music. Pas de Deezer. Spotify vide. |
 
-Pages artiste : Apple Music et Deezer, dans le même fichier. Le libellé de plateforme est « YouTube », pas un autre nom. Liens simples, nouvel onglet, `rel="noopener noreferrer"`. Pas de lecteur intégré.
-
-## Formulaire
-
-Champs : nom, société ou lieu, e-mail, type d’événement, date, ville, fourchette de budget optionnelle, message, case de consentement, pot de miel `website`.
-
-Le budget propose des paliers provisoires en euros, modifiables dans `src/content/en.ts`. Ce n’est pas une grille tarifaire publiée.
-
-Validation commune navigateur et serveur. Sans `BOOKING_WEBHOOK_URL` ni `RESEND_API_KEY`, succès de prévisualisation, aucun envoi, aucun stockage.
-
 ## Visuel
 
-Noir et blanc strict jusqu’à la charte de jeudi. Gris uniquement pour le texte secondaire et les rectangles `PHOTO`. Pas de dégradé, pas de photographie, pas d’image générée de l’artiste. Jetons dans `src/design/brand.css`. Wordmark texte dans `src/design/Wordmark.tsx`.
+Fond `#0B0B0C`. Surface `#2B2B2A`. Texte secondaire `#8C8A85`. Filets `#D8D5CE`. Texte et logo `#F4F1EA`. Pas de blanc pur hors d'une photo. Pas de couleur d'accent.
 
-## Technique
+Titres et navigation : Mona Sans étroite élargie (largeur 125, graisse 300), capitales, approche 0,24 em. Texte long : Newsreader. Lignes de crédit : Mona Sans. Les deux polices sont locales, avec leurs licences OFL.
 
-Next.js (App Router), TypeScript, Tailwind. Pages statiques, sauf `POST /api/booking`. Déployable sur Vercel sans fichier de configuration supplémentaire.
+Wordmark fendu à partir de 60 px de haut de capitale. Version petites tailles en dessous. Favicon : carré fendu, y compris les variantes sombres et l'icône 180 px.
 
-`SITE_INDEXABLE` est le seul interrupteur d’indexation. Non défini : `noindex, nofollow`, en-tête `X-Robots-Tag`, et `robots.txt` en `Disallow: /`. Pas d’analytics, pas de cookies, pas de domaine inventé.
+## Formulaire et indexation
+
+Mêmes champs qu'avant. Mode prévisualisation sans prestataire. `noindex` et `robots.txt` en refus tant que `SITE_INDEXABLE` n'est pas `true`. Pas de mesure d'audience.

@@ -1,6 +1,8 @@
-# LYXAA
+# Site de l'artiste
 
-Site de présentation de LYXAA. L’anglais est la langue du site. Le français est réservé au dossier de presse (`/fr/presse`). Cette version est une prévisualisation protégée : pas de domaine public, pas d’indexation, pas de mesure d’audience, pas de cookies.
+Site de présentation. L'anglais est la langue du site. Le français est réservé au dossier de presse (`/fr/presse`). Cette version est une prévisualisation protégée : pas de domaine, pas d'indexation, pas de mesure d'audience, pas de cookies.
+
+Le nom de scène n'est écrit que dans `src/site.config.ts`. Partout ailleurs, le site le lit. Voir `docs/RENAME.md`.
 
 ## Lancer en local
 
@@ -21,92 +23,60 @@ npm test
 npm run build
 ```
 
-`npm run build` exécute le contrôle d’identité avant Next.js. C’est aussi la commande de build sur Vercel.
+`npm run build` exécute le contrôle d'identité avant Next.js.
 
 ## Où modifier les textes
 
-- `src/content/public-line.ts` — les deux phrases publiques officielles
-- `src/content/en.ts` — tous les textes anglais, y compris le formulaire
+- `src/content/lines.ts` — la phrase courte, la position sur les instruments, et la mention légale
+- `src/content/en.ts` — les textes anglais, y compris le formulaire
 - `src/content/fr-press.ts` — le dossier de presse français
-- `src/content/links.ts` — titres, numéros, dates de parution et toutes les adresses sortantes
-- `src/content/press-photos.ts` — cadres des photographies, avec des proportions stables
+- `src/content/links.ts` — titres, numéros, dates de parution et adresses sortantes
+- `src/content/press-photos.ts` — cadres des photographies
 
-Phrase anglaise, seule formulation autorisée sur ce sujet :
+La phrase courte est : « Producer and DJ. Black and white. AI is one of the instruments. The sets are real. »
 
-> LYXAA is the audiovisual project of a producer and DJ, augmented by AI.
+La mention, au pied de chaque page et dans le dossier de presse : « Music and visuals made using AI. »
 
-Phrase française, seule formulation autorisée sur ce sujet :
+Sur la page de presse française seulement : « L'IA est l'un des instruments. Les sets sont réels. » et « Musique et visuels créés à l'aide de l'IA. »
 
-> LYXAA, le projet audiovisuel d'une productrice et DJ, augmenté par l'IA.
+On n'écrit pas que les voix sont humaines. On ne nomme pas d'autre projet.
 
-Ne pas en écrire une autre, ni la paraphraser.
+## Charte
 
-## Charte graphique
+`src/design/brand.css` : les cinq couleurs et les rôles. `src/design/fonts.ts` : Mona Sans et Newsreader, servies en local. `src/design/Wordmark.tsx` : le wordmark dessiné. Les fichiers sont dans `public/brand/` et `public/favicon/`. Les licences sont dans `src/fonts/`.
 
-Tout passe par `src/design/brand.css` (couleurs, polices, espacements) et `src/design/Wordmark.tsx` (logotype). La charte définitive arrive jeudi. En attendant : noir et blanc strict, polices système, wordmark en texte brut. Le gris est réservé au texte secondaire et aux emplacements photographiques. Ces emplacements affichent exactement `PHOTO`.
+Le wordmark fendu est utilisé quand la hauteur de capitale atteint 60 px. En dessous, c'est la version pour petites tailles. Le fond du site est noir. Le gris des cadres `PHOTO` n'est pas un blanc pur.
 
-## Liens d’écoute
+## Liens d'écoute
 
-Une chaîne vide dans `src/content/links.ts` masque le bouton. Il ne faut pas inventer d’adresse. Spotify reste vide tant qu’une adresse vérifiée n’est pas fournie. Quiet Fire et Keep the Time n’ont pas de page Deezer : leur champ Deezer reste vide. Les dates s’affichent telles qu’elles ont été données (`11/11/2026`, `04/11/2026`, `01/11/2026`), sans conversion. Chaque lien est une ancre simple, `target="_blank"` et `rel="noopener noreferrer"`. Aucun lecteur n’est intégré.
+Une chaîne vide dans `src/content/links.ts` masque le bouton. Spotify reste vide. Deux titres n'ont pas de lien Deezer. Les dates s'affichent telles qu'elles ont été données. Chaque lien est une ancre, `target="_blank"` et `rel="noopener noreferrer"`. Aucun lecteur n'est intégré.
 
 ## Formulaire de booking
 
-La page Live envoie `POST /api/booking`. Le navigateur et le serveur valident les mêmes règles (`src/lib/booking-validate.ts`). Un champ caché, `website`, sert de pot de miel : s’il est rempli, la route répond comme en prévisualisation et n’envoie rien.
+`POST /api/booking`. Validation commune au navigateur et au serveur. Champ pot de miel `website`.
 
-Sans variable d’envoi, la route valide la demande et répond `{ "ok": true, "mode": "preview" }`. Rien n’est stocké, rien n’est transmis.
+Sans `BOOKING_WEBHOOK_URL` ni `RESEND_API_KEY`, la route valide et répond `{ "ok": true, "mode": "preview" }`. Rien n'est stocké, rien n'est transmis.
 
-Pour brancher un prestataire plus tard, sans créer de compte dans le dépôt :
+Webhook : `BOOKING_WEBHOOK_URL` en https. Resend : `RESEND_API_KEY`, `BOOKING_FROM_EMAIL`, `BOOKING_TO_EMAIL`. Aucun compte n'est créé ici. Le modèle est `.env.example`.
 
-1. Webhook. Définir `BOOKING_WEBHOOK_URL` avec une adresse `https`. La route poste ce JSON :
-
-```json
-{
-  "name": "",
-  "company": "",
-  "email": "",
-  "eventType": "club",
-  "date": "2026-12-12",
-  "city": "",
-  "budget": "",
-  "message": ""
-}
-```
-
-`eventType` vaut `club`, `brand`, `festival`, `private` ou `other`. `budget` vaut une des clés de `src/content/en.ts`, ou une chaîne vide.
-
-2. Resend. Définir `RESEND_API_KEY`, `BOOKING_FROM_EMAIL` et `BOOKING_TO_EMAIL`. La route appelle l’API HTTPS de Resend. Si la clé est présente mais qu’un des deux e-mails manque, la route renvoie une erreur de configuration et n’annonce pas un envoi.
-
-Les deux peuvent être définis ensemble. Un échec d’envoi renvoie une erreur. Le modèle est dans `.env.example`. Ne pas committer de secret.
-
-## Prévisualisation protégée sur Vercel
-
-Aucun fichier de configuration Vercel n’est nécessaire pour builder.
+## Prévisualisation protégée
 
 1. Importer le projet. Laisser la commande de build sur `npm run build`.
-2. Ne pas attacher de domaine public.
-3. Activer Deployment Protection (authentification Vercel ou mot de passe).
-4. Laisser `SITE_INDEXABLE` non défini.
-5. Vérifier `/robots.txt` : `Disallow: /`. Vérifier qu’une page porte `noindex, nofollow`.
+2. Ne pas attacher de domaine.
+3. Laisser `NEXT_PUBLIC_SITE_URL` vide. Aucune balise canonique ne doit pointer vers un domaine.
+4. Activer Deployment Protection.
+5. Laisser `SITE_INDEXABLE` non défini. `/robots.txt` contient `Disallow: /`. Les pages portent `noindex, nofollow`.
 
-`SITE_INDEXABLE=true` lève le blocage d’indexation (métadonnées, en-tête `X-Robots-Tag`, et `robots.txt`). Ne le faire qu’à l’ouverture publique, puis redéployer.
+## Liste avant l'ouverture
 
-## Liste avant l’ouverture publique
+- Décision sur le nom, puis `docs/RENAME.md` si le nom change
+- Textes provisoires : biographie longue, fiche technique, photographies, EPK
+- Mentions légales et confidentialité
+- Adresses Spotify seulement si elles sont vérifiées
+- Dates de concert
+- Branchement du booking, puis description du traitement dans la page confidentialité
+- `SITE_INDEXABLE=true` seulement à l'ouverture publique
 
-- Remplacer la charte dans `src/design/`
-- Faire relire les textes anglais et le dossier de presse français
-- Remplacer les textes provisoires : biographie longue, fiche technique, photographies, EPK
-- Faire rédiger les mentions légales et la confidentialité
-- Ajouter les adresses Spotify seulement quand elles sont vérifiées
-- Publier les dates de concert
-- Brancher le booking, puis décrire ce traitement dans la page confidentialité avant l’ouverture
-- Confirmer qu’aucune image de l’artiste n’a été générée
-- Lancer `npm run check:identity`
-- Passer `SITE_INDEXABLE=true` seulement au moment de l’ouverture, et retirer la protection de déploiement seulement à ce moment-là
+## Contrôles
 
-## Identité publique
-
-`scripts/check-public-identity.mjs` échoue si un prénom ou un nom civil apparaît dans le dépôt, en dehors de ce script. Les valeurs y sont encodées. Ne pas les écrire dans le code, les commentaires, les textes, les textes alternatifs ou ce fichier.
-
-## Captures
-
-Les captures de pages sont dans `docs/screenshots/`. Les notes et la spécification sont dans `docs/notes.md` et `docs/specs.md`.
+`scripts/check-public-identity.mjs` échoue si un prénom ou un nom civil apparaît, si le nom de scène est recopié hors de la config, des tests et des noms de fichiers de wordmark, si une adresse de domaine reprend ce nom, ou si le texte affirme des voix humaines ou cite un autre projet.

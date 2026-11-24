@@ -8,7 +8,7 @@
 }
 
 html {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
@@ -20,7 +20,14 @@ body {
   color: var(--color-foreground);
   font-family: var(--font-text);
   font-size: 1.0625rem;
-  line-height: 1.65;
+  font-optical-sizing: auto;
+  line-height: 1.45;
+}
+
+@media (min-width: 800px) {
+  body {
+    font-size: 1.125rem;
+  }
 }
 
 main {
@@ -117,32 +124,62 @@ select,
 .footer-inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 0.85rem 1.5rem;
-  padding-block: 1.15rem;
+  padding-block: 1rem;
 }
 
 .wordmark-link {
   text-decoration: none;
+  line-height: 0;
 }
 
-.wordmark {
-  font-weight: 500;
-  font-size: 1.05rem;
-  letter-spacing: 0.22em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.wordmark-hero {
+.logo {
   display: block;
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-  line-height: 0.8;
-  font-size: clamp(4.5rem, 17vw, 14rem);
-  white-space: nowrap;
+}
+
+.logo img {
+  display: none;
+  width: auto;
+  height: auto;
+}
+
+.logo-header .logo-small,
+.logo-hero .logo-small {
+  display: block;
+  height: calc(28px / var(--logo-cap));
+}
+
+.logo-hero .logo-small {
+  width: min(100%, 16rem);
+  height: auto;
+}
+
+@media (min-width: 960px) {
+  .logo-header .logo-small {
+    display: none;
+  }
+
+  .logo-header .logo-fendu {
+    display: block;
+    height: calc(60px / var(--logo-cap));
+  }
+
+  .logo-header {
+    margin-block: 30px;
+  }
+
+  .logo-hero .logo-small {
+    display: none;
+  }
+
+  .logo-hero .logo-fendu {
+    display: block;
+    width: 100%;
+    max-width: 64rem;
+    height: auto;
+  }
 }
 
 .site-nav ul,
@@ -154,12 +191,23 @@ select,
 
 .site-nav a,
 .footer-links a,
-.lang-switch a,
-.text-link {
+.lang-switch a {
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  font-weight: 300;
+  font-stretch: 125%;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.text-link {
+  font-family: var(--font-text);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 .site-nav a:hover,
@@ -184,33 +232,56 @@ select,
 
 .kicker {
   margin-bottom: 0.85rem;
+  font-family: var(--font-display);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-weight: 300;
+  font-stretch: 125%;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-stretch: 125%;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1.25;
+}
+
 h1 {
-  font-family: var(--font-text);
-  font-weight: 400;
-  font-size: clamp(2.7rem, 6vw, 4.6rem);
-  letter-spacing: -0.03em;
-  line-height: 0.98;
+  font-size: 1.75rem;
 }
 
 h2 {
-  font-family: var(--font-text);
-  font-weight: 400;
-  font-size: clamp(1.7rem, 3vw, 2.3rem);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: 1.3125rem;
 }
 
 h3 {
-  font-family: var(--font-text);
-  font-weight: 400;
-  font-size: 1.35rem;
-  line-height: 1.25;
+  font-size: 1rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 0;
+  letter-spacing: 0;
+  line-height: 0;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: 2.375rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.3125rem;
+  }
 }
 
 .lede,
@@ -220,8 +291,55 @@ h3 {
 
 .lede {
   margin-top: 1.4rem;
-  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-size: 1.0625rem;
+  font-weight: 400;
   line-height: 1.45;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.hero .lede {
+  margin-top: clamp(2.5rem, 8vw, 5.5rem);
+}
+
+.signature {
+  margin: 0;
+  max-width: 16rem;
+  font-family: var(--font-text);
+  font-style: italic;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.notice {
+  max-width: var(--measure);
+  margin-top: 1.25rem;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+  text-transform: none;
+  color: var(--color-secondary);
+}
+
+.credit {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 400;
+  font-stretch: 125%;
+  letter-spacing: 0.16em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+}
+
+@media (min-width: 800px) {
+  .lede {
+    font-size: 1.3125rem;
+  }
 }
 
 .secondary {
@@ -320,9 +438,11 @@ h3 {
 
 .index-label {
   font-family: var(--font-display);
-  letter-spacing: 0.14em;
+  font-weight: 300;
+  font-stretch: 125%;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 .link-row {
@@ -339,14 +459,17 @@ h3 {
   padding: 0.45rem 0.8rem;
   border: var(--line);
   text-decoration: none;
-  letter-spacing: 0.04em;
-  font-size: 0.84rem;
-  line-height: 1;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0.02em;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-transform: none;
 }
 
 .link-button:hover {
-  background: var(--color-foreground);
-  color: var(--color-background);
+  background: var(--color-surface);
 }
 
 .button {
@@ -359,15 +482,17 @@ h3 {
   background: var(--color-foreground);
   color: var(--color-background);
   font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 400;
+  font-stretch: 100%;
+  letter-spacing: 0.02em;
+  text-transform: none;
   cursor: pointer;
 }
 
 .button:hover {
-  background: var(--color-background);
-  color: var(--color-foreground);
+  background: var(--color-line);
+  color: var(--color-background);
 }
 
 .button:disabled {
@@ -430,7 +555,7 @@ h3 {
   display: grid;
   place-items: center;
   background: var(--color-placeholder);
-  color: var(--color-foreground);
+  color: var(--color-background);
   font-family: var(--font-display);
   font-size: 0.78rem;
   letter-spacing: 0.18em;

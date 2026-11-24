@@ -1,4 +1,4 @@
-import { publicLineFr } from "@/content/public-line";
+import { noticeFr, oneLinerFr } from "@/content/lines";
 
 export const frPress = {
   title: "Dossier de presse",
@@ -8,7 +8,8 @@ export const frPress = {
   heading: "Dossier de presse",
   languageLabel: "Langue",
   shortHeading: "Biographie courte",
-  shortBio: publicLineFr,
+  shortBio: oneLinerFr,
+  notice: noticeFr,
   longHeading: "Biographie longue",
   longBio:
     "[Texte provisoire — la biographie longue sera fournie par l’équipe musicale.]",

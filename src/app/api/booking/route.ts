@@ -1,5 +1,6 @@
 import { en } from "@/content/en";
 import { processBooking, type ProcessResult } from "@/lib/booking-process";
+import { artistName, wordmarks } from "@/site.config";
 
 export const dynamic = "force-dynamic";
 
@@ -23,11 +24,11 @@ function htmlPage(result: ProcessResult): string {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>${escapeHtml(en.live.title)} — LYXAA</title>
+    <title>${escapeHtml(en.live.title)} — ${escapeHtml(artistName)}</title>
   </head>
-  <body style="margin:0;background:#fff;color:#000;font-family:Georgia,serif;padding:3rem 1.25rem">
+  <body style="margin:0;background:#0B0B0C;color:#F4F1EA;font-family:Georgia,serif;padding:3rem 1.25rem">
     <main style="max-width:36rem">
-      <h1 style="font-weight:400;font-size:2.4rem">LYXAA</h1>
+      <p><img src="${wordmarks.smallOnDark}" alt="${escapeHtml(artistName)}" height="32" /></p>
       <p>${escapeHtml(title)}</p>
       <p><a href="/live#booking">${escapeHtml(en.booking.htmlBack)}</a></p>
     </main>

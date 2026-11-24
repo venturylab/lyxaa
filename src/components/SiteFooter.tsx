@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { en } from "@/content/en";
-import { Wordmark } from "@/design/Wordmark";
 import { ArtistLinks } from "@/components/ArtistLinks";
 import { isSiteIndexable } from "@/lib/indexing";
 
@@ -8,9 +7,6 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="wrap footer-inner">
-        <p>
-          <Wordmark />
-        </p>
         <nav aria-label={en.footer.navLabel}>
           <ul className="footer-links">
             {en.nav.map((item) => (
@@ -35,8 +31,9 @@ export function SiteFooter() {
           <ArtistLinks label={en.footer.listen} />
         </div>
         <div className="footer-meta">
-          <p className="secondary">{en.footer.copyright}</p>
-          {isSiteIndexable() ? null : <p className="secondary">{en.footer.preview}</p>}
+          <p className="notice">{en.footer.notice}</p>
+          <p className="credit">{en.footer.copyright}</p>
+          {isSiteIndexable() ? null : <p className="credit">{en.footer.preview}</p>}
         </div>
       </div>
     </footer>

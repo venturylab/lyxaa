@@ -9,6 +9,7 @@ export type PressCopy = {
   languageLabel: string;
   shortHeading: string;
   shortBio: string;
+  notice: string;
   longHeading: string;
   longBio: string;
   discoHeading: string;
@@ -53,6 +54,7 @@ export function PressKit({ copy, lang }: { copy: PressCopy; lang: "en" | "fr" })
       <section aria-labelledby="short-bio">
         <h2 id="short-bio">{copy.shortHeading}</h2>
         <p className="lede">{copy.shortBio}</p>
+        <p className="notice">{copy.notice}</p>
       </section>
 
       <section aria-labelledby="long-bio">
